@@ -6,15 +6,15 @@ Using GitHub's API, check if the CI run on a given branch succeeded
 
 ### `repo_owner`
 
-**Required** user or organization under which the repo is'
+**Required** user or organization under which the repo is
 
 ### `repo_name`
 
-**Required** name of the repo'
+**Required** name of the repo
 
 ### `branch_name`
 
-**Required** name of the branch to check'
+**Required** name of the branch to check
 
 ### `check_name`
 
@@ -28,5 +28,10 @@ None
 ## Example usage
 
 ```yaml
-TODO
+    - uses: samuelgruetter/check-ci-success@master
+      with:
+        repo_owner: 'mit-plv'
+        repo_name: 'bedrock2'
+        branch_name: 'master'
+        check_name: 'Travis CI - Branch'
 ```

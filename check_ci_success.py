@@ -49,6 +49,8 @@ def act_on(check_run):
         print(f"Check run conclusion: {check_run['conclusion']}")
         sys.exit(1)
 
+    # success
+    print(f"status: {check_run['status']}, conclusion: {check_run['conclusion']}, head_sha: {check_run['head_sha']}")
     sys.exit(0)
 
 def test_act_on():
@@ -69,6 +71,10 @@ if __name__ == "__main__":
         f"https://api.github.com/repos/{repo_owner}/{repo_name}/commits/{branch_name}/check-runs",
         params={'check_name': check_name, 'filter': 'latest'}
     ).json()
+
+    if len(checks_data['check_runs']) == 0:
+        print("Error: no check runs found")
+        sys.exit(1)
 
     assert(len(checks_data['check_runs']) == 1)
     check_run = checks_data['check_runs'][0]
