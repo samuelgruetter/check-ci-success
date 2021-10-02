@@ -76,6 +76,9 @@ if __name__ == "__main__":
         print("Error: no check runs found")
         sys.exit(1)
 
-    assert(len(checks_data['check_runs']) == 1)
+    # assert is disabled because even though we ask for THE latest check run,
+    # GitHub still returns two check runs if there's one from a PR and another
+    # one after the master branch got fast-forwarded to the commit of the PR
+    # assert(len(checks_data['check_runs']) == 1)
     check_run = checks_data['check_runs'][0]
     act_on(check_run)
