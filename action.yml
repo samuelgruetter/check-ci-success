@@ -13,6 +13,9 @@ inputs:
     check_name:
         description: 'name of the check run to look for, eg "Travis CI - Branch"'
         required: true
+    github_token:
+        description: 'GitHub token to authenticate API requests, required because otherwise you risk hitting rate limits'
+        required: true
 runs:
   using: 'docker'
   image: 'Dockerfile'
@@ -21,3 +24,4 @@ runs:
     - ${{ inputs.repo_name }}
     - ${{ inputs.branch_name }}
     - ${{ inputs.check_name }}
+    - ${{ inputs.github_token }}

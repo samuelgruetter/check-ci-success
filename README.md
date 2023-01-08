@@ -20,6 +20,9 @@ Using GitHub's API, check if the CI run on a given branch succeeded
 
 **Required** name of the check run to look for, eg "Travis CI - Branch"
 
+### `github_token`
+
+**Required** GitHub token to authenticate API requests, required because otherwise you risk hitting rate limits
 
 ## Outputs
 
@@ -34,4 +37,5 @@ None
         repo_name: 'bedrock2'
         branch_name: 'master'
         check_name: 'Travis CI - Branch'
+        github_token: ${{ secrets.GITHUB_TOKEN }}
 ```

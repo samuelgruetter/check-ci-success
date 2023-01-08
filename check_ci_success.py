@@ -65,8 +65,9 @@ if __name__ == "__main__":
     repo_name = sys.argv[2]
     branch_name = sys.argv[3]
     check_name = sys.argv[4]
+    github_token = sys.argv[5]
 
-    sess = create_session(None)
+    sess = create_session(github_token)
     checks_data = sess.get(
         f"https://api.github.com/repos/{repo_owner}/{repo_name}/commits/{branch_name}/check-runs",
         params={'check_name': check_name, 'filter': 'latest'}
