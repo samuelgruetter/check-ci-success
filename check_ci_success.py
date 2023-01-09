@@ -58,8 +58,8 @@ def test_act_on():
     act_on(check_run)
 
 if __name__ == "__main__":
-    if len(sys.argv) != 5:
-        print("Error: Expecting exactly four arguments: repo owner, repo name, branch name, check name")
+    if len(sys.argv) != 6:
+        print("Error: Expecting exactly five arguments: repo owner, repo name, branch name, check name, and GitHub token")
         sys.exit(1)
     repo_owner = sys.argv[1]
     repo_name = sys.argv[2]
